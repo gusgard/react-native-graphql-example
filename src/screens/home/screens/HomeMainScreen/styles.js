@@ -5,10 +5,6 @@ import { colors } from '@themes';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.white
+    backgroundColor: colors.primary,
   },
-  text: {
-    fontSize: 30,
-    color: colors.primaryLight
-  }
 });

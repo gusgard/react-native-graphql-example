@@ -1,7 +1,17 @@
 import React from 'react';
+import { ApolloProvider } from 'react-apollo';
 
-import { HomeMainScreen } from 'PumpPump/src/screens';
+import { HomeMainScreen } from 'GraphqlExample/src/screens';
 
-const App = () => <HomeMainScreen />;
+import client from './apolloClient';
+import createStore from './createStore';
+
+const store = createStore();
+
+const App = () => (
+  <ApolloProvider store={store} client={client}>
+    <HomeMainScreen />
+  </ApolloProvider>
+);
 
 export default App;
