@@ -15,7 +15,7 @@ class HomeMainScreen extends PureComponent {
     user: PropTypes.object.isRequired,
     popular: PropTypes.array.isRequired,
     fetchUser: PropTypes.func.isRequired,
-    fetchPhotosGrid: PropTypes.func.isRequired,
+    fetchPhotosGrid: PropTypes.func.isRequired
   };
 
   componentWillMount() {
@@ -71,10 +71,10 @@ class HomeMainScreen extends PureComponent {
 export default connect(
   state => ({
     user: getUserState(state),
-    popular: getPopularPostState(state),
+    popular: getPopularPostState(state)
   }),
   dispatch => ({
     fetchUser: id => dispatch(actions.fetchUser(id)),
-    fetchPhotosGrid: () => dispatch(actions.fetchPhotosGrid()),
-  }),
+    fetchPhotosGrid: () => dispatch(actions.fetchPhotosGrid())
+  })
 )(HomeMainScreen);

@@ -10,7 +10,7 @@ const newImage = {
   6: Faker.image.people,
   7: Faker.image.nature,
   8: Faker.image.animals,
-  9: Faker.image.imageUrl,
+  9: Faker.image.imageUrl
 };
 const getNewImage = index =>
   newImage[index % (Object.keys(newImage).length - 1)]();
@@ -19,30 +19,30 @@ const user = {
   description: Faker.lorem.paragraphs(),
   id: 1234,
   name: Faker.name.findName(),
-  thumbnail: Faker.image.avatar(),
+  thumbnail: Faker.image.avatar()
 };
 
 const photo = index => ({
   id: Faker.random.uuid(),
   thumbnail: getNewImage(index),
-  user_id: user.id,
+  user_id: user.id
 });
 
 const popular = index => ({
   id: Faker.random.uuid(),
-  thumbnail: getNewImage(index),
+  thumbnail: getNewImage(index)
 });
 
 const MAX_PHOTOS = Math.round(Math.random() * 5) + 3;
 const profiles = Array.from(Array(MAX_PHOTOS)).map((_, index) => photo(index));
 
-const MAX_POPULAR = Math.round(Math.random() * 100) + 15;
+const MAX_POPULAR = Math.round(Math.random() * 50) + 15;
 const populars = Array.from(Array(MAX_POPULAR)).map((_, index) =>
-  popular(index),
+  popular(index)
 );
 
 module.exports = {
   profiles,
   populars,
-  users: [user],
+  users: [user]
 };

@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android && adb reverse tcp:8081 tcp:8081",
-    "ios": "react-native run-ios --simulator='iPhone 6'",
+    "ios": "react-native run-ios",
     "lint": "eslint index.js src __mocks__",
     "lint-fix": "eslint index.js src __mocks__ --fix",
     "postinstall": "rndebugger-open",
-    "start": "node node_modules/react-native/local-cli/cli.js start",
     "api": "json-graphql-server db.js",
+    "start": "concurrently 'npm run api' 'npm run start-rn'",
+    "start-rn": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "check-env": "yarn solidarity",
     "test-watch": "jest --watch"
@@ -28,7 +29,7 @@
     "react-native": "0.50.3",
     "react-native-debugger-open": "^0.3.15",
     "react-native-grid-list": "^1.0.5",
-    "react-native-swiper-flatlist": "^0.0.3",
+    "react-native-swiper-flatlist": "^1.0.1",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
@@ -42,6 +43,7 @@
     "babel-jest": "21.2.0",
     "babel-plugin-transform-remove-console": "^6.8.5",
     "babel-preset-react-native": "4.0.0",
+    "concurrently": "^3.5.1",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.2",
     "enzyme-to-json": "^3.1.4",
@@ -67,7 +69,9 @@
   "jest": {
     "preset": "react-native",
     "setupTestFrameworkScriptFile": "./enzyme.js",
-    "snapshotSerializers": ["./node_modules/enzyme-to-json/serializer"]
+    "snapshotSerializers": [
+      "./node_modules/enzyme-to-json/serializer"
+    ]
   },
   "pre-commit": {
     "run": "lint"

@@ -14,8 +14,6 @@ Run `yarn install`
 
 Run `yarn start`
 
-Run `yarn api`
-
 ## Simulator
 
 For an Android device `yarn android`

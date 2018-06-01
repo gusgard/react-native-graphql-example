@@ -9,7 +9,7 @@ import { fetchPhotosGrid, fetchUser } from './actions';
 import {
   FETCH_USER,
   FETCH_PHOTOS_SLIDER,
-  FETCH_ALL_POPULAR,
+  FETCH_ALL_POPULAR
 } from '../../constants';
 
 const mockApi = new MockAdapter(HttpService.instance);
@@ -24,22 +24,20 @@ describe('home actions', () => {
       {
         createdAt: '2017-11-04T19:49:54.136Z',
         thumbnail: 'https://reactjs.org/logo-og.png',
-        objectId: 18561785,
+        objectId: 18561785
       },
       {
         createdAt: '2017-11-04T19:31:41.206Z',
         thumbnail: 'https://reactjs.org/logo-og.png',
-        objectId: 18561778,
-      },
+        objectId: 18561778
+      }
     ];
     rawUser = {
-      bio:
-        "Motivation to become the best version of you!  💙💪🌎\n\nIt's #HealthyHolidays ❄️🏋️\u200d♀️\n\n" +
-        'Share your photos all month long to be featured!\n\n👻 Snapchat @PumpUp\n\nGet your #TeamPumpUp gear ⬇️',
-      name: 'pumpup',
+      bio: '\n\n👻 ⬇️',
+      name: 'name',
       profileThumbnail: 'https://reactjs.org/logo-og.png',
       createdAt: '2014-02-03T07:21:44.372Z',
-      objectId: 318381,
+      objectId: 318381
     };
   });
 
@@ -47,7 +45,7 @@ describe('home actions', () => {
     const popularPhotos = posts.map(item => User.decodePhoto(item));
 
     const expectedActions = [
-      { type: FETCH_ALL_POPULAR, payload: { popularPhotos } },
+      { type: FETCH_ALL_POPULAR, payload: { popularPhotos } }
     ];
 
     const response = { result: { posts } };
@@ -67,7 +65,7 @@ describe('home actions', () => {
 
     const expectedActions = [
       { type: FETCH_USER, payload: { user } },
-      { type: FETCH_PHOTOS_SLIDER, payload: { photos } },
+      { type: FETCH_PHOTOS_SLIDER, payload: { photos } }
     ];
 
     const userId = 1;
