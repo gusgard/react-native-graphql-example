@@ -12,7 +12,7 @@ Run `yarn install`
 
 ## Start
 
-Run `yarn start`
+Run `yarn start` and `yarn api`
 
 ## Simulator
 
